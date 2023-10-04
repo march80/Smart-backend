@@ -21,6 +21,7 @@ const app = express();
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 app.use(cors())
+
 app.get('/',(req, res) =>{
     res.send('success')
 });
@@ -106,6 +107,6 @@ app.post('/register', (req, res) => {
 
     });
 
-    app.listen(3000, ()=> {
-        console.log('app is running on port 3000')
+    app.listen(process.env.PORT || 3000, ()=> {
+        console.log('app is running on port ${process.env.PORT}')
     })
